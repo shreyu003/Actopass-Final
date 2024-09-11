@@ -1,0 +1,93 @@
+<section class="section-space">
+    <div class="container-1170">
+        <div class="row">
+             <div class="col-12">
+                <h3 class="ticket-heading"> {{ section.settings.book-ticket-heading }} </h3>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    {% assign product = all_products[section.settings.prd_for_varient] %}
+                    {% for variant in product.variants %}
+                        <div class="col-6">
+                            <h3>{{ variant.title }}</h3>
+                        </div>
+                        <div class="col-6">
+                            <div class="row select-ticket_box">
+                                <div class="text-end">
+                                    {% if variant.price == 0 %}
+                                        <p class="sold-out-txt m-0">sold out</p>
+                                    {% else %}
+                                        <p class="m-0">{{ variant.price | money_with_currency }}</p>
+                                    {% endif %}
+                                </div>
+                                <div class="qty_selector_box">
+                                    <div class="qty-btn_box">
+                                        <span class="qty-btn"> {{ section.settings.qty_decrease_btn }} </span>
+                                    </div>
+                                    <button class="select-seat-btn">{{ section.settings.select-btn-txt }}</button>
+                                    <div class="qty-btn_box">
+                                        <span class="qty-btn"> {{ section.settings.qty_increase_btn }} </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    document.querySelectorAll('.select-seat-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+        const parentBox = button.closest('.qty_selector_box');
+        const qtyValBoxes = parentBox.querySelectorAll('.qty-btn_box');
+        
+        qtyValBoxes.forEach((qtyValBox) => {
+            qtyValBox.style.display = 'block';
+        });
+    });
+});
+
+
+</script>
+
+{% schema %}
+    {
+        "name": "As Book Ticket",
+        "settings": [
+            {
+                "type": "text",
+                "id": "book-ticket-heading",
+                "label": "Add Heading"
+            },
+            {
+                "type": "product",
+                "id": "prd_for_varient",
+                "label": "Add Single Product"
+            },
+            {
+                "type": "text",
+                "id": "select-btn-txt",
+                "label": "Add Button Name"
+            },
+            {
+                "type": "html",
+                "id": "qty_decrease_btn",
+                "label": "Add Qty Decrease Button"
+            },
+            {
+                "type": "html",
+                "id": "qty_increase_btn",
+                "label": "Add Qty Decrease Button"
+            }
+        ],
+        "presets": [
+            {
+                "name": "As Book Ticket"
+            }
+        ]
+    }
+{% endschema %}

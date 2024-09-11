@@ -1,0 +1,195 @@
+<style>
+    .calendar {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .calendar-header button {
+        background-color: transparent;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    #month-name {
+        font-size: 1.2rem;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+    }
+
+    td {
+        cursor: pointer;
+    }
+
+    .available {
+        color: green;
+    }
+
+    .sold-out {
+        color: red;
+    }
+
+    .selected {
+        background-color: purple;
+        color: white;
+    }
+
+    .legend {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+    }
+
+    .legend div {
+        display: flex;
+        align-items: center;
+    }
+
+    .available-dot,
+    .sold-out-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+    .available-dot {
+        background-color: green;
+    }
+
+    .sold-out-dot {
+        background-color: red;
+    }
+</style>
+
+<section class="section-space">
+    <div class="container-1170">
+        <div class="calendar">
+            <div class="calendar-header">
+                <button id="prev-month">
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <span id="month-name">July 2024</span>
+                <button id="next-month">
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                        <th>Sun</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar-body">
+                </tbody>
+            </table>
+            <div class="legend">
+                <div><span class="available-dot"></span> Available</div>
+                <div><span class="sold-out-dot"></span> Sold Out</div>
+            </div>
+        </div>
+        {% comment %} <form action="/cart" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="properties[_Selected Date]" id="cart-date">
+            <input type="submit" value="Add to Cart">
+        </form> {% endcomment %}
+    </div>
+</section>
+
+<script>
+    const availableDates = [1, 27, 28];
+    const soldOutDates = [26, 31];
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let currentDate = new Date();
+    let selectedDate = null;
+    function renderCalendar() {
+        const monthName = document.getElementById('month-name');
+        const calendarBody = document.getElementById('calendar-body');
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+        monthName.textContent = `${monthNames[month]} ${year}`;
+        calendarBody.innerHTML = '';
+        const firstDay = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        let date = 1;
+        for (let i = 1; i < 6; i++) {
+            let row = document.createElement('tr');
+            for (let j = 0; j < 7; j++) {
+                let cell = document.createElement('td');
+                if (i === 0 && j < firstDay) {
+                    cell.innerHTML = '';
+                } else if (date > daysInMonth) {
+                    break;
+                } else {
+                    cell.innerHTML = date;
+                    if (availableDates.includes(date)) {
+                        cell.classList.add('available');
+                    } else if (soldOutDates.includes(date)) {
+                        cell.classList.add('sold-out');
+                    }
+                    cell.addEventListener('click', function () {
+                        if (selectedDate) {
+                            selectedDate.classList.remove('selected');
+                        }
+                        cell.classList.add('selected');
+                        selectedDate = cell;
+                        addToCart(date);
+                    });
+                    date++;
+                }
+                row.appendChild(cell);
+            }
+            calendarBody.appendChild(row);
+        }
+    }
+    function addToCart(date) {
+        const selectedDate = `${monthNames[currentDate.getMonth()]} ${date}, ${currentDate.getFullYear()}`;
+        document.getElementById('cart-date').value = selectedDate;
+    }
+    document.getElementById('prev-month').addEventListener('click', function () {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        renderCalendar();
+    });
+    document.getElementById('next-month').addEventListener('click', function () {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        renderCalendar();
+    });
+    renderCalendar();
+</script>
+
+
+{% schema %}
+    {
+        "name": "As Dynamic Calender",
+        "settings": [],
+        "presets": [
+            {
+                "name": "As Dynamic Calender"
+            }
+        ]
+}
+{% endschema %}

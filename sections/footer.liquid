@@ -1,0 +1,532 @@
+{% comment %}theme-check-disable ImgLazyLoading, UndefinedObject, NestedSnippet{% endcomment %}
+<style data-async-reload-css="footer-colors">
+  {%- liquid
+    assign default_rgba = 'rgba(0,0,0,0)'
+
+    if "ar he he-IL hi" contains localization.language.iso_code
+      assign rtl = '-rtl'
+    endif
+  -%}
+  :root {
+    {% assign color = settings.color_footer_global_bg -%}{%- if color != default_rgba and color != blank -%}--footer-global-bg: {{ color }};{%- endif %}
+    {% assign color = settings.color_footer_global -%}{%- if color != default_rgba and color != blank -%}--footer-global-color: {{ color }};{%- endif %}
+    {% assign color = settings.color_footer_global_link -%}{%- if color != default_rgba and color != blank -%}--footer-global-link-color: {{ color }};{%- endif %}
+    {% assign color = settings.color_footer_global_link_hover -%}{%- if color != default_rgba and color != blank -%}--footer-global-link-hover-color: {{ color }};{%- endif %}
+
+    {% assign color = settings.color_footer_bg -%}{%- if color != default_rgba and color != blank -%}--footer-content-bg: {{ color }};{%- endif %}
+    {% assign color = settings.color_footer -%}{%- if color != default_rgba and color != blank -%}--footer-content-color: {{ color }};{%- endif %}
+    {% assign color = settings.color_footer_link -%}{%- if color != default_rgba and color != blank -%}--footer-content-link-color: {{ color }};{%- endif %}
+    {% assign color = settings.color_footer_link_hover -%} {%- if color != default_rgba and color != blank -%}--footer-content-link-hover-color: {{ color }};{%- endif %}
+
+    {% assign color = settings.color_footer_social -%}{%- if color != default_rgba and color != blank -%}--footer-social-color: {{ color }};{%- endif %}
+    {% assign color = settings.color_footer_social_hover -%}{%- if color != default_rgba and color != blank -%}--footer-social-hover-color: {{ color }};{%- endif %}
+    {% assign color = settings.color_footer_border -%}{%- if color != default_rgba and color != blank -%}--footer-border-color: {{ color }};{%- endif %}
+
+    {% assign color = settings.color_footer_top_bg -%}{%- if color != default_rgba and color != blank -%}--footer-top-bg: {{ color }};{%- endif %}
+    {% assign color = settings.color_footer_top -%}{%- if color != default_rgba and color != blank -%}--footer-top-color: {{ color }};{%- endif %}
+    {% assign color = settings.color_footer_top_link -%}{%- if color != default_rgba and color != blank -%}--footer-top-link-color: {{ color }};{%- endif %}
+    {% assign color = settings.color_footer_top_link_hover -%}{%- if color != default_rgba and color != blank -%}--footer-top-link-hover-color: {{ color }};{%- endif %}
+
+    {% assign color = settings.color_footer_bottom_bg -%}{%- if color != default_rgba and color != blank -%}--footer-bottom-bg: {{ color }};{%- endif %}
+    {% assign color = settings.color_footer_bottom -%}{%- if color != default_rgba and color != blank -%}--footer-bottom-color: {{ color }};{%- endif %}
+    {% assign color = settings.color_footer_bottom_link -%}{%- if color != default_rgba and color != blank -%}--footer-bottom-link-color: {{ color }};{%- endif %}
+    {% assign color = settings.color_footer_bottom_link_hover -%}{%- if color != default_rgba and color != blank -%}--footer-bottom-link-hover-color: {{ color }};{%- endif %}
+
+    {% assign brightness = settings.color_footer_bg | color_brightness %}
+    {%- if brightness > 200 -%}
+    --footer-border-color: {{ settings.color_footer_bg | color_darken: 10 }};
+    {% else %}
+    --footer-border-color: {{ settings.color_footer_bg | color_lighten: 10 }};
+    {%- endif -%}
+    --footer-border-color: {{ settings.color_footer_global_bg | color_mix: '#ddd', 50 }};
+  }
+</style>
+{{ 'footer' | append: rtl | append: '.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign layout = section.settings.layout | plus: 0
+  case layout
+  when 1
+    render 'footer-layout-big-subscription', section: section
+  when 2
+    render 'footer-layout-small-subscription', section: section
+  when 3
+    render 'footer-layout-vertical', section: section
+  when 4
+    render 'footer-layout-logo-nav-at-bottom', section: section
+  when 5
+    render 'footer-layout-logo-copyright-at-bottom', section: section
+  endcase
+%}
+{% schema %}
+{
+  "name": "t:sections.footer.name",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "t:sections.footer.settings.layout.label",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.footer.settings.layout.options.1"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.footer.settings.layout.options.2"
+        },
+        {
+          "value": "3",
+          "label": "t:sections.footer.settings.layout.options.3"
+        },
+        {
+          "value": "4",
+          "label": "t:sections.footer.settings.layout.options.4"
+        },
+        {
+          "value": "5",
+          "label": "t:sections.footer.settings.layout.options.5"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.content.logo"
+    },
+    {
+      "type": "checkbox",
+      "id": "svg_logo",
+      "label": "t:sections.footer.settings.svg_logo.label",
+      "default": false,
+      "info": "t:sections.footer.settings.svg_logo.info"
+    },
+    {
+      "type": "text",
+      "id": "svg_logo_name",
+      "label": "t:sections.footer.settings.svg_logo_name.label",
+      "info": "t:sections.footer.settings.svg_logo_name.info",
+      "default": "logo.svg"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "t:sections.footer.settings.logo.label"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "t:sections.footer.settings.logo_width.label",
+      "min": 10,
+      "max": 240,
+      "step": 5,
+      "unit": "px",
+      "default": 145
+    },
+    {
+      "type": "range",
+      "id": "logo_width_mobile",
+      "label": "t:sections.footer.settings.logo_width_mobile.label",
+      "min": 10,
+      "max": 240,
+      "step": 5,
+      "unit": "px",
+      "default": 145
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.content.email_signup.content",
+      "info": "t:sections.footer.settings.content.email_signup.info"
+    },
+    {
+      "type": "select",
+      "id": "input_style",
+      "label": "t:sections.footer.settings.input_style.label",
+      "options": [
+        {
+          "value": "shadow",
+          "label": "t:sections.footer.settings.input_style.options.shadow"
+        },
+        {
+          "value": "stroke",
+          "label": "t:sections.footer.settings.input_style.options.stroke"
+        },
+        {
+          "value": "border-0",
+          "label": "t:sections.footer.settings.input_style.options.border-0"
+        }
+      ],
+      "default": "shadow"
+    },
+    {
+      "type": "select",
+      "id": "button_color",
+      "label": "Button color",
+      "options": [
+        {
+          "value": "btn--default",
+          "label": "Primary"
+        },
+        {
+          "value": "btn--invert",
+          "label": "Secondary"
+        },
+        {
+          "value": "btn--grey",
+          "label": "Third"
+        },
+        {
+          "value": "btn--white",
+          "label": "Fourth"
+        },
+        {
+          "value": "btn--fifth",
+          "label": "Fifth"
+        }
+      ],
+      "default": "btn--invert"
+    },
+    {
+      "type": "checkbox",
+      "id": "newsletter_enable",
+      "default": true,
+      "label": "t:sections.footer.settings.newsletter_enable.label"
+    },
+    {
+      "type": "radio",
+      "id": "top_bottom_space",
+      "label": "t:sections.footer.settings.top_bottom_space.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.footer.settings.top_bottom_space.options.none"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.footer.settings.top_bottom_space.options.small"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.footer.settings.top_bottom_space.options.medium"
+        }
+      ],
+      "default": "small",
+      "info": "t:sections.footer.settings.top_bottom_space.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "payment_enable",
+      "default": true,
+      "label": "t:sections.footer.settings.payment_enable.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "bottom_socials_media",
+      "default": false,
+      "label": "t:sections.footer.settings.bottom_socials_media.label"
+    },
+    {
+      "type": "range",
+      "id": "column_width",
+      "min": 15,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.footer.settings.column_width.label",
+      "default": 25,
+      "info": "t:sections.footer.settings.column_width.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "set_equal_width",
+      "label": "t:sections.footer.settings.set_equal_width.label",
+      "default": true,
+      "info": "t:sections.footer.settings.set_equal_width.info"
+    },
+    {
+      "type": "radio",
+      "id": "space_between_columns",
+      "label": "t:sections.footer.settings.space_between_columns.label",
+      "options": [
+        {
+          "value": "gx-none",
+          "label": "t:sections.footer.settings.space_between_columns.options.gx-none"
+        },
+        {
+          "value": "gx-5",
+          "label": "t:sections.footer.settings.space_between_columns.options.gx-5"
+        }
+      ],
+      "default": "gx-5"
+    },
+    {
+      "type": "select",
+      "id": "columns_text_aligment",
+      "label": "t:sections.footer.settings.columns_text_aligment.label",
+      "options": [
+        {
+          "value": "start",
+          "label": "t:sections.footer.settings.columns_text_aligment.options.start"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.footer.settings.columns_text_aligment.options.center"
+        },
+        {
+          "value": "end",
+          "label": "t:sections.footer.settings.columns_text_aligment.options.end"
+        }
+      ],
+      "default": "start"
+    },
+    {
+      "type": "select",
+      "id": "collections_column_title_style",
+      "label": "t:sections.footer.settings.collections_column_title_style.label",
+      "options": [
+        {
+          "value": "0",
+          "label": "t:sections.footer.settings.collections_column_title_style.options.0"
+        },
+        {
+          "value": "1",
+          "label": "t:sections.footer.settings.collections_column_title_style.options.1"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.footer.settings.collections_column_title_style.options.2"
+        },
+        {
+          "value": "3",
+          "label": "t:sections.footer.settings.collections_column_title_style.options.3"
+        },
+        {
+          "value": "4",
+          "label": "t:sections.footer.settings.collections_column_title_style.options.4"
+        }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "textarea",
+      "id": "shop-name",
+      "label": "Add Shop Name"
+    },
+    {
+      "type": "textarea",
+      "id": "copyright",
+      "label": "t:sections.footer.settings.copyright.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.content.separator"
+    },
+    {
+      "type": "paragraph",
+      "content": "You can set footer styled separator in Theme Settings / Separators"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo_text_socials",
+      "name": "t:sections.footer.blocks.logo_text_socials.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.footer.blocks.logo_text_socials.settings.text.label",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.footer.blocks.logo_text_socials.settings.content.social_media_icons.content",
+          "info": "t:sections.footer.blocks.logo_text_socials.settings.content.social_media_icons.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_social",
+          "default": true,
+          "label": "Show social media icons"
+        },
+        {
+          "type": "range",
+          "id": "column_width",
+          "min": 15,
+          "max": 50,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.footer.blocks.logo_text_socials.settings.column_width.label",
+          "default": 25,
+          "info": "t:sections.footer.blocks.logo_text_socials.settings.column_width.info"
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "name": "t:sections.footer.blocks.contacts.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_captions",
+          "label": "Show captions",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Contacts",
+          "label": "t:sections.footer.blocks.contacts.settings.heading.label"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "t:sections.footer.blocks.contacts.settings.phone.label",
+          "default": "+1-202-555-0158"
+        },
+        {
+          "type": "text",
+          "id": "email",
+          "label": "t:sections.footer.blocks.contacts.settings.email.label",
+          "default": "loremipsum@gmail.com"
+        },
+        {
+          "type": "text",
+          "id": "address",
+          "label": "t:sections.footer.blocks.contacts.settings.address.label",
+          "default": "2414 Wescam Court, Orovada"
+        },
+        {
+          "type": "range",
+          "id": "column_width",
+          "min": 15,
+          "max": 50,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.footer.blocks.contacts.settings.column_width.label",
+          "default": 25,
+          "info": "t:sections.footer.blocks.contacts.settings.column_width.info"
+        }
+      ]
+    },
+    {
+      "type": "link_list",
+      "name": "t:sections.footer.blocks.link_list.name",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Quick links",
+          "label": "t:sections.footer.blocks.link_list.settings.heading.label",
+          "info": "t:sections.footer.blocks.link_list.settings.heading.info"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "default": "footer",
+          "label": "t:sections.footer.blocks.link_list.settings.menu.label",
+          "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+        },
+        {
+          "type": "range",
+          "id": "column_width",
+          "min": 15,
+          "max": 50,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.footer.blocks.link_list.settings.column_width.label",
+          "default": 25,
+          "info": "t:sections.footer.blocks.link_list.settings.column_width.info"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.footer.blocks.text.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Heading",
+          "label": "t:sections.footer.blocks.text.settings.heading.label"
+        },
+        {
+          "type": "richtext",
+          "id": "subtext",
+          "default": "<p>Share store details, promotions, or brand content with your customers.</p>",
+          "label": "t:sections.footer.blocks.text.settings.subtext.label"
+        },
+        {
+          "type": "range",
+          "id": "column_width",
+          "min": 15,
+          "max": 50,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.footer.blocks.text.settings.column_width.label",
+          "default": 25,
+          "info": "t:sections.footer.blocks.text.settings.column_width.info"
+        }
+      ]
+    },
+    {
+      "type": "subscribe",
+      "name": "t:sections.footer.blocks.subscribe.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "range",
+          "id": "column_width",
+          "min": 15,
+          "max": 50,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.footer.blocks.subscribe.settings.column_width.label",
+          "default": 25,
+          "info": "t:sections.footer.blocks.subscribe.settings.column_width.info"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "t:sections.footer.blocks.image.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.footer.blocks.image.settings.image.label"
+        },
+        {
+          "type": "range",
+          "id": "column_width",
+          "min": 15,
+          "max": 50,
+          "step": 1,
+          "unit": "%",
+          "label": "t:sections.footer.blocks.image.settings.column_width.label",
+          "default": 25,
+          "info": "t:sections.footer.blocks.image.settings.column_width.info"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "logo_text_socials"
+      },
+      {
+        "type": "link_list"
+      },
+      {
+        "type": "link_list"
+      },
+      {
+        "type": "contacts"
+      }
+    ]
+  }
+}
+{% endschema %}

@@ -1,0 +1,96 @@
+<style>
+    .bg-inner{
+        width: 100%;
+        padding: 50px 0;
+        background-image: url('{{ section.settings.background_image |  img_url: '' }}');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+</style>
+
+<section class="bg-line">
+    <div class="bg-inner">
+        <div class="container-1170">
+            <div class="w-100">
+                <p class="subheading"> {{ section.settings.subheading-txt }} </p>
+                <h3 class="main_heading"> {{ section.settings.heading-txt }} 
+                    <span class="star-icon">
+                        {{ section.settings.star-icon }}
+                    </span>
+                </h3>
+            </div>
+            <div class="col-12">
+                {% for row in section.blocks %}
+                    <div class="custom-row">
+                        <div class="col-12">
+                            <h3 class="icon-heading"> <span> {{ row.settings.heading-icon }} </span> {{ row.settings.title-txt }} </h3>
+                            <ul class="list-items_block">
+                                {% assign list_items = row.settings.list_items | split: '|' %}
+                                {% for item in list_items %}
+                                    <li class="list_items"> <p> {{ item }} </p> </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Marketing Content Section",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Add Your BG Image"
+        },
+        {
+            "type": "textarea",
+            "id": "subheading-txt",
+            "label": "Add your Description"
+        },
+        {
+            "type": "text",
+            "id": "heading-txt",
+            "label": "Add your Title"
+        },
+        {
+            "type": "html",
+            "id": "star-icon",
+            "label": "Add Svg Icon"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Marketing Content",
+            "type": "text",
+            "settings": [
+                {
+                    "type": "html",
+                    "id": "heading-icon",
+                    "label": "Add Your Icon"
+                },
+                {
+                    "type": "text",
+                    "id": "title-txt",
+                    "label": "Add Your Title"
+                },
+                {
+                    "type": "textarea",
+                    "id": "list_items",
+                    "label": "List Items ( Separated By | )"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Marketing Content Section"
+        }
+    ]
+}
+{% endschema %}

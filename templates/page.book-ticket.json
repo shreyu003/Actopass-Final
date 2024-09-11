@@ -1,0 +1,30 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "as_dynamic_calendar_MkFf6K": {
+      "type": "asDynamicCalendar",
+      "settings": {
+      }
+    },
+    "as_book_ticket_7r9txD": {
+      "type": "asBookTicket",
+      "settings": {
+        "book-ticket-heading": "Tickets",
+        "prd_for_varient": "imaginary-art-show-in-krasota-restaurant",
+        "select-btn-txt": "select seat",
+        "qty_decrease_btn": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"9\" height=\"5\" viewbox=\"0 0 9 5\" fill=\"none\">\n<path d=\"M0.0874023 4.39961V0.913086H8.72447V4.39961H0.0874023Z\"><\/path>\n<\/svg>",
+        "qty_increase_btn": "<svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"11\" height=\"12\" viewbox=\"0 0 11 12\" fill=\"none\">\n<path d=\"M0.34082 7.26678V4.79452H10.9272V7.26678H0.34082ZM4.24995 11.1548V0.864258H6.99691V11.1548H4.24995Z\"><\/path>\n<\/svg>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "as_dynamic_calendar_MkFf6K",
+    "as_book_ticket_7r9txD"
+  ]
+}

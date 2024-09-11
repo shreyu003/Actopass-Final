@@ -1,0 +1,104 @@
+<section class="section-space2">
+    <div class="container-1170">
+        <div class="border-gray py-4">
+            <div class="col-12">
+                <div class="swiper clientLogoSlider">
+                    <div class="swiper-wrapper">
+                        {% for logoslider in section.blocks %}
+                            <div class="swiper-slide cursor-pointer">
+                                <img src="{{ logoslider.settings.clinet_logo_image | img_url: '1000x1000' }}" alt="">
+                                <p class="company_name_txt"> {{ logoslider.settings.company-name-txt }} </p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <p class="cleint_slider_heading"> {{ section.settings.title-txt }} </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    var clientLogoSwiper = new Swiper(".clientLogoSlider", {
+        slidesPerView: 5,
+        spaceBetween: 30,
+        centeredSlides: true,
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            425: {
+                slidesPerView: 3,
+                spaceBetween: 10
+            },
+            768: {
+                slidesPerView: 5,
+                spaceBetween: 10
+            },
+            1024: {
+                slidesPerView: 5,
+                spaceBetween: 10
+            }
+        },
+        initialSlide: 2,
+        on: {
+            slideChange: function () {
+                updateSlideOpacity(this);
+            },
+            init: function () {
+                updateSlideOpacity(this);
+            }
+        }
+    });
+
+    function updateSlideOpacity(swiper) {
+        var slides = swiper.slides;
+        slides.forEach((slide, index) => {
+            if (index === swiper.activeIndex) {
+                slide.style.opacity = '1';
+            } else {
+                slide.style.opacity = '0.4';
+            }
+        });
+    }
+</script>
+
+{% schema %}
+{
+    "name": "As Client Slider",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title-txt",
+            "label": "Add Your Text"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Client Logo Slider",
+            "type": "image_picker",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "clinet_logo_image",
+                    "label": "Add Client Logo"
+                },
+                {
+                    "type": "text",
+                    "id": "company-name-txt",
+                    "label": "Add company Name"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "As Client Slider"
+        }
+    ]
+}
+{% endschema %}

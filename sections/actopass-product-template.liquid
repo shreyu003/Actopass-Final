@@ -1,0 +1,61 @@
+{% render 'actopass-product-template' %}
+
+{% schema %}
+{
+    "name": "Event Information",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "asbreadcrumb",
+            "label": "Add Bradcrumb",
+            "default": true
+        },
+        {
+            "type": "url",
+            "id": "select-ticket-btn",
+            "label": "Add Your Link"
+        },
+        {
+            "type": "text",
+            "id": "first_heading",
+            "label": "Add First Heading"
+        },
+        {
+            "type": "text",
+            "id": "first_heading_subttl",
+            "label": "Add First Heading"
+        }
+    ],
+    "blocks": [
+        {
+          "type": "@app"
+        },
+        {
+            "type": "extra-info",
+            "name": "Extra Information Block",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "accor_heading",
+                    "label": "Add Heading"
+                },
+                {
+                    "type": "text",
+                    "id": "accor_subheading",
+                    "label": "Add Icon"
+                },
+                {
+                    "type": "textarea",
+                    "id": "accor_desc",
+                    "label": "Add Description"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Acotpass Product Information"
+        }
+    ]
+}
+{% endschema %}

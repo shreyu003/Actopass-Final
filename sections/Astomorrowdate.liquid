@@ -1,0 +1,153 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<style>
+    .date-slider {
+        display: flex;
+        overflow-x: scroll;
+    }
+    .date {
+        display: inline-block;
+        padding: 10px;
+        margin: 0 5px;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .date.selected {
+        background-color: rgba(245, 226, 255, 1);
+        color: rgba(142, 49, 204, 1);
+    }
+    .date:hover {
+        background-color: rgba(245, 226, 255, 1);
+        color: rgba(142, 49, 204, 1);
+    }
+    .tomrow_flex{
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+    }
+    .dateinput{
+        width: 0px;
+        outline: none;
+        border: 0;
+        color: #aaa;
+    }
+    .date-container {
+        position: relative;
+        float: left;
+    }
+    .date-container input{
+        display: none !important;
+    }
+    .date-icon {
+        cursor: pointer;
+        color: #aaa;
+    }
+    .w_90{
+        width: 90%;
+    }
+    @media screen and (max-width: 425px) {
+        .w_90 {
+            width: 84%;
+        }
+    }
+</style>
+
+<div class="astomrrow">
+    <div class="container-1170">
+        <div class="tomrow_flex">
+            <div>
+                <p class="m-0">More dates</p>
+                <div class="date-container">
+                    <input class="dateinput" type="text" name="datetimes">
+                    <svg class="date-icon" for="datetimes" width="18" height="18" aria-hidden="true" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.3735 1.43675C13.2554 0.826625 13.531 0 12.6059 0C11.6809 0 11.9564 0.836466 11.8384 1.39739C9.79148 1.39739 7.76428 1.39739 5.72724 1.39739C5.59931 0.836466 5.86501 0 4.93997 0C4.01494 0 4.29048 0.836466 4.16255 1.43675C3.94606 1.43675 3.7394 1.42691 3.53274 1.43675C1.58427 1.52532 0.0491085 3.0408 0.0294266 4.98927C-0.00993729 7.96119 -0.00993729 10.9233 0.0294266 13.8952C0.0491085 15.8633 1.60395 17.4182 3.58195 17.4379C7.0459 17.4674 10.5 17.4772 13.964 17.4379C15.9616 17.4182 17.5066 15.8338 17.5165 13.8361C17.5362 10.9036 17.5362 7.97103 17.5165 5.02864C17.4968 3.06048 15.9813 1.52532 14.0033 1.42691C13.7967 1.42691 13.59 1.43675 13.3735 1.43675ZM13.3637 2.92271C14.9874 2.74558 16.0502 3.69029 16.0601 5.26482C16.0601 7.99071 16.0601 10.7068 16.0601 13.4327C16.0601 15.1548 15.2236 15.9913 13.4916 15.9913C10.3426 15.9913 7.19351 15.9913 4.04446 15.9913C3.82797 15.9913 3.62131 15.9814 3.40481 15.9617C2.34201 15.824 1.51538 14.9777 1.50554 13.905C1.48586 10.9233 1.47602 7.93167 1.50554 4.94991C1.52522 3.58204 2.91277 2.59797 4.19207 2.96207C4.28064 3.49348 4.02478 4.29058 4.91045 4.31026C5.87485 4.32994 5.59931 3.47379 5.69771 2.90303C7.76428 2.90303 9.78164 2.90303 11.8187 2.90303C11.9368 3.47379 11.6711 4.31026 12.5961 4.31026C13.531 4.3201 13.2554 3.48364 13.3637 2.92271Z" fill="black"/>
+                        <path d="M8.82713 5.79639C7.38054 5.79639 5.94379 5.79639 4.49719 5.79639C3.91658 5.79639 3.57216 6.06209 3.56232 6.51476C3.55248 6.96744 3.8969 7.26266 4.46767 7.26266C7.35102 7.26266 10.2344 7.26266 13.1276 7.26266C13.5212 7.26266 13.905 7.15441 13.964 6.75094C14.0034 6.49508 13.8558 6.1605 13.6983 5.944C13.5999 5.81607 13.3047 5.80623 13.1079 5.80623C11.681 5.79639 10.254 5.79639 8.82713 5.79639Z" fill="black"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="w_90">
+                <p class="m-0">July 2024</p>
+                <div class="date-slider " id="date-slider"></div>
+                <div id="events"></div>
+            </div>  
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+<script>
+$(function() {
+  $('svg[for="datetimes"]').daterangepicker({
+    timePicker: true,
+    startDate: moment().startOf('hour'),
+    endDate: moment().startOf('hour').add(32, 'hour'),
+    locale: {
+      format: 'M/DD hh:mm A'
+    }
+  });
+});
+
+</script>
+
+
+<script>
+   
+        // Generate dates for three months
+        function generateDates() {
+            const dateSlider = document.getElementById('date-slider');
+            const today = new Date();
+            let date = new Date(today);
+            date.setDate(date.getDate() - 15); // Start 15 days before today
+
+            for (let i = 0; i < 90; i++) { // Generate 90 days (approx. 3 months)
+                const dateElement = document.createElement('div');
+                dateElement.className = 'date';
+                dateElement.textContent = `${date.getDate()} ${date.toLocaleString('default', { weekday: 'short' })}`;
+                dateElement.dataset.date = date.toISOString().split('T')[0]; // Store date in ISO format
+
+                dateElement.addEventListener('click', function() {
+                    document.querySelectorAll('.date').forEach(el => el.classList.remove('selected'));
+                    this.classList.add('selected');
+                    showEvents(this.dataset.date);
+                });
+
+                dateSlider.appendChild(dateElement);
+
+                // Move to the next day
+                date.setDate(date.getDate() + 1);
+            }
+        }
+
+        // Show events for the selected date
+        function showEvents(date) {
+            const eventsDiv = document.getElementById('events');
+            eventsDiv.innerHTML = `<h2>Events on ${date}</h2>`;
+            // Here, you can fetch and display events for the selected date
+            // For example:
+            // eventsDiv.innerHTML += `<p>Event 1 on ${date}</p>`;
+            // eventsDiv.innerHTML += `<p>Event 2 on ${date}</p>`;
+        }
+
+        // Initialize the date slider
+        generateDates();
+</script>
+
+
+
+{% schema %}
+{
+    "name": "As_Tomorrow",
+    "settings": [
+        
+        ],
+        "presets": [
+            {
+                "name": "As_Tomorrow"
+            }
+        ]
+}
+{% endschema %}

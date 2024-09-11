@@ -1,0 +1,93 @@
+.textimg_bg{
+    background-image: url("https://cdn.shopify.com/s/files/1/0889/3576/0194/files/Vector.png?v=1722063666") !important;
+    width: auto !important;
+    background-repeat: no-repeat !important;
+    object-fit: cover !important;
+    background-position: right !important;
+    display: inline-block !important;
+    padding: 10px 20px 10px 0 !important;
+}
+.bg_colortext{
+    display: inline;
+    background: rgb(255 255 255 / 0%) !important;
+}
+.textimgTop_flex{
+    display: flex;
+}
+.astitals{
+    font-size: 20px;
+    color: rgba(113, 113, 113, 1);
+    margin: 10px 0;
+}
+.m_auto{
+    margin: auto;
+}
+.d_flex_manu{
+    display: flex;
+    align-items: center;
+}
+.d_flex_manu svg{
+    margin-bottom: 14px;
+}
+/* .list-menu  li{
+    margin-right: 10px;
+} */
+.img_acount{
+    width: 40px;
+    height: 40px;
+}
+.img_flex_acount{
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px;
+}
+.actoflex{
+    display: flex;
+    gap: 20px;
+}
+.actoflex li:hover{
+    color: rgba(142, 49, 204, 1);
+}
+
+
+/*  */
+
+.actoNav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.actoNav ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.actoMenu ul li{
+    list-style: none;
+    color: rgba(105, 105, 105, 1);
+}
+.logo_heding_one{
+    font-size:90px;
+    color: #f5f5f5;
+    margin:0;
+    line-height: 65px;
+    font-weight: 500;
+    margin-bottom: -10px;
+}
+.color_text{
+    color: #dfdfdf;
+}
+
+/* changes by shreyu */
+.actoannounc{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+@media screen and (max-width: 425px) {
+    .ps-20{
+        padding-left: 22px;
+    }   
+}
