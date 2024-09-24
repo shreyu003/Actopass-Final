@@ -100,6 +100,7 @@
       endif
     -%}
     {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+    {{ 'daterangepicker.css' | asset_url | stylesheet_tag }}
     {{ 'style.css' | asset_url | stylesheet_tag }}
   </head>
 
@@ -161,6 +162,8 @@
 
     {{ 'swiper-bundle.min.js' | asset_url | script_tag }}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {{ 'moment.min.js' | asset_url | script_tag }}
+    {{ 'daterangepicker.min.js' | asset_url | script_tag }}
     {{ 'swiperInitialization.js' | asset_url | script_tag }}
     {{ 'script.js' | asset_url | script_tag }}
   </body>

@@ -9,21 +9,6 @@
             "id": "asbreadcrumb",
             "label": "Add Bradcrumb",
             "default": true
-        },
-        {
-            "type": "url",
-            "id": "select-ticket-btn",
-            "label": "Add Your Link"
-        },
-        {
-            "type": "text",
-            "id": "first_heading",
-            "label": "Add First Heading"
-        },
-        {
-            "type": "text",
-            "id": "first_heading_subttl",
-            "label": "Add First Heading"
         }
     ],
     "blocks": [
@@ -45,9 +30,144 @@
                     "label": "Add Icon"
                 },
                 {
-                    "type": "textarea",
+                    "type": "richtext",
                     "id": "accor_desc",
                     "label": "Add Description"
+                }
+            ]
+        },
+        {
+            "type": "price-variant",
+            "name": "Variant Price Block",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "ticket-price_ttl",
+                    "label": "Add Title",
+                    "default": "Ticket Prices"
+                },
+                {
+                    "type": "text",
+                    "id": "ticket-price_subttl",
+                    "label": "Add Sub Title",
+                    "default": "Mid-Year Splash - Tickets"
+                }
+            ]
+        },
+        {
+            "type": "price-detail",
+            "name": "Price Details Block",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "price-from_ttl",
+                    "label": "Add Title",
+                    "default": "Price From:"
+                },
+                {
+                    "type": "text",
+                    "id": "price-from_subttl",
+                    "label": "Add Sub Title",
+                    "default": "Per Person"
+                },
+                {
+                    "type": "html",
+                    "id": "instant_confirmation-icon",
+                    "label": "Add SVG Icon"
+                },
+                {
+                    "type": "text",
+                    "id": "icon-txt",
+                    "label": "Add Icon Related Text",
+                    "default": "Instant Confirmation"
+                },
+                {
+                    "type": "url",
+                    "id": "select-ticket-btn",
+                    "label": "Add Your Link"
+                },
+                {
+                    "type": "html",
+                    "id": "select-ticket-btn-icon",
+                    "label": "Add Button Icon"
+                },
+                {
+                    "type": "text",
+                    "id": "select-ticket-btn-txt",
+                    "label": "Add Button Text",
+                    "default": "Select Tickets"
+                }
+            ]
+        },
+        {
+            "type": "loaction-block",
+            "name": "Loaction Block",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "loaction-ttl",
+                    "label": "Add Title",
+                    "default": "Loaction Map"
+                },
+                {
+                    "type": "html",
+                    "id": "loaction-icon",
+                    "label": "Add Loaction Icon"
+                },
+                {
+                    "type": "text",
+                    "id": "city-name",
+                    "label": "Add City Name"
+                },
+                {
+                    "type": "textarea",
+                    "id": "address_txt",
+                    "label": "Add Show Address"
+                },
+                {
+                    "type": "html",
+                    "id": "loaction-map",
+                    "label": "Add Loaction Map"
+                }
+            ]
+        },
+        {
+            "type": "share-wishlist",
+            "name": "Share And Wishlist Block",
+            "settings": [
+                {
+                    "type": "html",
+                    "id": "share_icon",
+                    "label": "Add Share Icon"
+                },
+                {
+                    "type": "text",
+                    "id": "share_heading",
+                    "label": "Add Heading",
+                    "default": "Share Event"
+                },
+                {
+                    "type": "html",
+                    "id": "wishlist_icon",
+                    "label": "Add Wishlist Icon"
+                },
+                {
+                    "type": "text",
+                    "id": "wishlist_heading",
+                    "label": "Add Heading",
+                    "default": "Add Favourites"
+                }
+            ]
+        },
+        {
+            "type": "timing-block",
+            "name": "Event Time Block",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "timing-heading",
+                    "label": "Add Title",
+                    "default": "Timing"
                 }
             ]
         }

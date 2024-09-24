@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="signout-box">
-            <a href="/account/logout" id="customer_logout_link" class="signout-btn">sign out</a>
+            <a href="/account/logout" id="customer_logout_link" class="signout-btn">{{ section.settings.signout-btn }}</a>
         </div>
     </div>
 </section>
@@ -70,8 +70,9 @@
         },
         {
             "type": "text",
-            "id": "sign_out_btn",
-            "label": "sign_out_btn"
+            "id": "signout-btn",
+            "label": "Add Button Text",
+            "default": "Sign Out"
         }
     ],
     "blocks": [

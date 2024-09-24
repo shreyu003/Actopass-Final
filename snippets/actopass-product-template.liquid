@@ -1,379 +1,3 @@
-<style>
-  .beadcrumbdetails {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 40px 0px 0px 0px;
-  }
-
-  .actoFunctions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .asShareBtn {
-    display: flex;
-    background: none;
-    border: none;
-    gap: 5px;
-    align-items: center;
-  }
-
-  .swiper-slide img,
-  .swiper-slide video {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-  }
-
-  .eventDetailsSection {
-    width: 100%;
-    margin: 20px auto;
-    padding-top: 40px;
-  }
-
-  .eventDetailsContainer {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  .eventSectionOne,
-  .eventSectionTwo {
-    width: 48%;
-  }
-
-  .eventType {
-    width: auto;
-  }
-
-  .eventType h4 {
-    background-color: #e1e1e1;
-    width: max-content;
-    padding: 3px 10px;
-    border-radius: 5px;
-  }
-
-  .locationDetails {
-    width: 100%;
-  }
-
-  .locationDetails h2 {
-    margin: 0px;
-    margin-bottom: 10px;
-  }
-
-  .prd-tag {
-    background-color: #e1e1e1;
-    width: fit-content;
-    padding: 4px 15px;
-    text-transform: uppercase;
-    font-weight: 800;
-    letter-spacing: 1px;
-    border-radius: 6px;
-    margin-bottom: 16px !important;
-    opacity: 90%;
-  }
-
-  /* Timing Details */
-  .actotimeanddate {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .acto_timing_detail {
-    width: max-content;
-    margin: 0px;
-    padding: 4px 10px;
-    display: flex;
-    gap: 10px;
-    border-radius: 5px;
-    background-color: #e1e1e1;
-    align-items: center;
-  }
-
-  .actoDate p {
-    margin: 0px;
-  }
-
-  .actoTime {
-    width: max-content;
-    margin: 0px;
-    padding: 3px 5px;
-    display: flex;
-    gap: 10px;
-    border-radius: 5px;
-    background-color: #e1e1e1;
-    align-items: center;
-  }
-
-  .actoTime p {
-    margin: 0px;
-  }
-
-  /* Ticket Price Section */
-  .ticketPricsection {
-    margin: 25px 0px;
-  }
-
-  .ticketPricsection h2 {
-    margin: 25px 0px 10px 0px;
-  }
-
-  .ticketPricsection p {
-    color: #a8a8a8;
-    margin: 0px;
-    font-weight: 500;
-  }
-
-  .ticketPricsection ul {
-    margin: 0;
-    padding: 0;
-    margin-top: 20px;
-  }
-
-  .ticketPricsection ul li {
-    list-style: none;
-    font-weight: 600;
-    color: gray;
-  }
-
-  .actokids {
-    font-weight: 600 !important;
-    color: gray !important;
-    margin: 20px 0px !important;
-  }
-
-  /* Venues */
-  .eventVenueSection {
-    padding: 20px 0px;
-    border-top: 1px solid grey;
-    border-bottom: 1px solid grey;
-  }
-
-  .ttlvenues {
-    color: #942ffa;
-    margin: 0px;
-  }
-
-  .ttlvenues a:hover {
-    color: #942ffa;
-    text-decoration: underline;
-  }
-
-  .eventBasicdetails {
-    display: flex;
-    column-gap: 20px;
-  }
-
-  .eventDuration {
-    display: flex;
-    gap: 30px;
-  }
-
-  .durtime {
-    display: flex;
-    gap: 10px;
-    font-weight: 600;
-  }
-
-  .durtime p {
-    margin: 0px;
-  }
-
-  .accordion {
-    margin: 25px 0px;
-  }
-
-  #accordion-1 {
-    position: relative;
-  }
-
-  #accordion-1 .head {
-    color: #ffffff;
-    cursor: pointer;
-    transition: 0.2s ease;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  #accordion-1 .head h2 {
-    margin: 0px;
-  }
-
-  .accordian-subtitle {
-    color: #000;
-    opacity: 0.6;
-    font-weight: 600;
-    padding: 5px 0 20px;
-  }
-
-  #accordion-1 .arrow {
-    color: #000000;
-    font-size: 20px;
-    transition: 0.25s ease;
-    transform: rotate(0deg);
-  }
-
-  #accordion-1 .head:hover .arrow {
-    opacity: 1;
-  }
-
-  #accordion-1 .arrow-animate {
-    transform: rotate(-180deg);
-    opacity: 1;
-  }
-
-  #accordion-1 .highlightcontent {
-    background-color: #ffffff;
-    padding: 10px 0px;
-    color: #222222;
-  }
-
-  .bookingDiv {
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid lightgray;
-    border-radius: 20px;
-    padding: 20px 20px;
-  }
-
-  .bookingPrice h2,
-  .bookingPrice p,
-  .bookingPrice h5,
-  .bookingPrice h4 {
-    margin: 0px;
-    padding: 0px;
-  }
-
-  .bookingPrice p,
-  .bookingPrice h4 {
-    color: #00000066;
-    font-weight: 500;
-  }
-
-  .bookTickets p {
-    margin: 0px;
-  }
-
-  .eventtcktselect {
-    background-color: #942ffa;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-radius: 8px;
-    font-size: 15px;
-  }
-
-  .eventtcktselect h5 {
-    margin: 0px;
-    color: white;
-    font-weight: 400;
-  }
-
-  /* EVENT SECTION TWO */
-
-  .eventsPricestart h3 {
-    padding: 0px 30px 5px;
-    margin: 0;
-  }
-
-  .whytitle h2 {
-    margin: 0px;
-  }
-
-  .whyicons {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .whyiconone {
-    margin-top: 30px;
-    width: 49%;
-  }
-
-  .whyactopass {
-    border: 1px solid lightgrey;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 20px;
-  }
-
-  .whycontnte h3 {
-    margin: 0px;
-    margin-top: 10px;
-    font-size: 18px;
-  }
-
-  .whycontnte h4 {
-    margin: 0px;
-    margin-top: 0px;
-    font-weight: 500;
-    color: #000000;
-    font-size: 16px;
-    opacity: 60%;
-  }
-
-  .last-accordion {
-    border-bottom: 1px solid #808080;
-    padding-bottom: 20px;
-  }
-
-  @media screen and (max-width: 1024px) {
-    .whycontnte h3 {
-      font-size: 16px;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-
-    .eventSectionOne,
-    .eventSectionTwo {
-      width: 100%;
-    }
-
-    .eventSectionTwo {
-      padding-top: 30px;
-    }
-  }
-
-  @media screen and (max-width: 425px) {
-    .eventtcktselect {
-      padding: 10px 10px;
-      gap: 5px;
-      font-size: 14px;
-      width: 135px;
-    }
-
-    .whyiconone {
-      width: 100%;
-    }
-
-    .whysvg,
-    .whycontnte {
-      text-align: center;
-    }
-
-    .ticketpricelist ul li h5 {
-      font-size: 14px;
-    }
-  }
-</style>
-
 {% if product.template_suffix == 'actopassproduct' %}
 <div class="container-1170">
   <div class="beadcrumbdetails">
@@ -383,25 +7,21 @@
     </div>
     {% endif %}
     <div class="actoFunctions">
-      <div class="asShare">
-        <button class="asShareBtn" popovertarget="popup">
-          <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M4.50543 8.33199C3.87283 8.90979 3.14986 9.20218 2.30176 9.09079C1.1895 8.95156 0.320541 8.15795 0.063331 7.05107C-0.179976 5.99989 0.292735 4.86516 1.22425 4.2804C2.16968 3.68171 3.36536 3.73044 4.24126 4.44747C4.47067 4.63543 4.61665 4.61455 4.8391 4.47532C5.42999 4.11332 6.03479 3.77221 6.64653 3.43109C6.81337 3.3406 6.86203 3.23617 6.82727 3.04125C6.57701 1.60022 7.56415 0.221843 8.96838 0.0269215C10.4699 -0.181924 11.8394 0.848378 11.9854 2.28245C12.1383 3.82094 11.0747 5.11578 9.55926 5.23412C8.85715 5.28981 8.24541 5.05312 7.48073 4.43355C6.75776 4.85124 6.01393 5.27589 5.27706 5.71447C5.22144 5.74927 5.17973 5.86066 5.17973 5.93723C5.17278 6.30619 5.17278 6.67515 5.17973 7.03715C5.17973 7.12069 5.2284 7.246 5.29096 7.28776C6.01393 7.71938 6.7508 8.13707 7.3556 8.4921C7.92563 8.23453 8.38444 7.94911 8.88496 7.83076C10.0111 7.56623 11.1512 8.13707 11.6865 9.15345C12.2217 10.1559 12.041 11.395 11.2485 12.2095C10.456 13.024 9.21863 13.2329 8.21065 12.7247C7.17485 12.2026 6.61177 11.0887 6.79251 9.94706C6.81337 9.83567 6.74385 9.64075 6.66043 9.58506C5.96527 9.16041 5.24925 8.7636 4.50543 8.33199ZM9.39938 3.93928C10.1293 3.93232 10.7271 3.33363 10.7202 2.60964C10.7132 1.88564 10.1084 1.28695 9.37852 1.28695C8.6486 1.29391 8.05771 1.88564 8.06466 2.62356C8.07857 3.36148 8.65555 3.93928 9.39938 3.93928ZM9.39243 11.7153C10.1154 11.7153 10.7271 11.1096 10.7271 10.3856C10.7271 9.65467 10.1293 9.06295 9.39938 9.06295C8.65555 9.06295 8.07857 9.64075 8.07857 10.3856C8.07162 11.1236 8.6625 11.7153 9.39243 11.7153ZM2.64239 5.17147C1.91247 5.16451 1.30767 5.74927 1.29377 6.48023C1.27987 7.20423 1.87771 7.81684 2.60763 7.8238C3.35145 7.83076 3.93539 7.25992 3.9493 6.51504C3.9493 5.77712 3.37231 5.17843 2.64239 5.17147Z"
-              fill="black" />
-          </svg>
-          <p style="margin: 0px;">Share event</p>
-        </button>
-        <div id="popup" popover style="padding: 20px">
-          <div class="actoSharetitle">Share On:</div>
-          {% render 'social_share_icon' %}
-        </div>
-        {% comment %} {% render 'halo-share', product: product, share_layout: check_show_share %} {% endcomment %}
-      </div>
-      <div class="asWishlist">
-        {% render 'wishlist' %}
-        <span> Add favourites </span>
-      </div>
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'share-wishlist' %}
+            <div class="asShare">
+              <button class="asShareBtn" onclick="shareContent()">
+                {{ block.settings.share_icon }}
+                <p style="margin: 0px;"> {{ block.settings.share_heading }} </p>
+              </button>
+            </div>
+            <div class="asWishlist">
+              {{ block.settings.wishlist_icon }}
+              <p style="margin: 0px;"> {{ block.settings.wishlist_heading }} </p>
+            </div>
+        {% endcase %}
+      {% endfor %}
     </div>
   </div>
 
@@ -430,269 +50,237 @@
   <div class="eventDetailsSection">
     <div class="eventDetailsContainer">
       <div class="eventSectionOne">
-        {% comment %} Shows Event Type {% endcomment %}
         <div class="eventType">
           <h4>{{ product.type }}</h4>
         </div>
-
-        {% comment %} location Details {% endcomment %}
         <div class="locationDetails">
           <p class="prd-tag">{{ product.tags | first }}</p>
           <h2>{{ product.title }}</h2>
           <div class="prd-decs">{{ product.description | truncate: 115 }}</div>
         </div>
 
-        {% comment %} Timing Details {% endcomment %}
-
         <div class="accordion accordion-flush" id="accordionFlushExample">
-          <div class="accordioncontainer">
-            <div id="accordion-1">
-              <div class="head">
-                <h2>Timing</h2>
-                <div>
-                  {% render 'asAngleTopIcon' %}
-                </div>
-              </div>
-              <div class="highlightcontent">
-                <div class="actotimeanddate">
-                  <div>
-                    <div class="acto_timing_detail">
-                      <div class="acto_timing_icon">
-                        {% render 'asCalenderIcon' %}
-                      </div>
-                      <p>{{ product.metafields.custom.starting_date }}</p>
-                      <div class="acto_timing_icon">
-                        {% render 'asSwipeArrowIcon' %}
-                      </div>
-                      <p>{{ product.metafields.custom.ending_date }}</p>
-                    </div>
-                  </div>
-                  <div class="acto_timing_detail">
-                    <div class="acto_timing_icon">
-                      {% render 'AsClockIcon' %}
-                    </div>
-                    <p>{{ product.metafields.custom.show_time }}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion accordion-flush" id="accordionFlushExample">
-            <div class="accordioncontainer">
-              <div id="accordion-1">
-                <div class="head">
-                  <div>
-                    <h2>{{ section.settings.first_heading }}</h2>
-                    <p class="accordian-subtitle">{{ section.settings.first_heading_subttl }}</p>
-                  </div>
-                  <div>
-                    {% render 'asAngleTopIcon' %}
-                  </div>
-                </div>
-                <div class="highlightcontent">
-                  <div class="row">
-                    {% for variant in product.variants %}
-                      <div class="col-12 d-flex py-2">
-                        <div class="d-flex">
-                          <p class="acto_ticket_type">{{ variant.title }}</p>
-                          <p class="dashed_icon"> - </p>
-                        </div>
-                        <div>
-                          {% if variant.price == 0 %}
-                          <p class="sold-out-txt m-0">sold out</p>
-                          {% else %}
-                          <p class="acto_ticket_prc">{{ variant.price | money_without_trailing_zeros }}</p>
-                          {% endif %}
-                        </div>
-                      </div>
-                    {% endfor %}
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="eventVenueSection">
-              <h4 class="ttlvenues">
-                <a href="#">3 More Venues
-                  <span>
-                    <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M1.47705 1.04045L4.73705 4.30045C5.12205 4.68545 5.12205 5.31545 4.73705 5.70045L1.47705 8.96045"
-                        stroke="#942FFA" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    </svg>
-                  </span>
-                </a>
-              </h4>
-              <div class="eventBasicdetails">
-                <div class="eventDuration">
-                  <div class="durtime">
-                    <span>
-                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M16.5 9C16.5 13.14 13.14 16.5 9 16.5C4.86 16.5 1.5 13.14 1.5 9C1.5 4.86 4.86 1.5 9 1.5C13.14 1.5 16.5 4.86 16.5 9Z"
-                          stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                          d="M11.7825 11.3848L9.45753 9.99732C9.05253 9.75732 8.72253 9.17982 8.72253 8.70732V5.63232"
-                          stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                    <p>1hr 30mins</p>
-                  </div>
-                  <div class="durtime">
-                    <span>
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_51_1053)">
-                          <mask id="mask0_51_1053" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0"
-                            width="20" height="20">
-                            <path d="M0 0H20V20H0V0Z" fill="white" />
-                          </mask>
-                          <g mask="url(#mask0_51_1053)">
-                            <path
-                              d="M10.5417 13.0582C10.6584 12.7582 10.5834 12.4165 10.35 12.1832L8.60837 10.4665L8.63337 10.4415C10.0452 8.87242 11.1 7.01588 11.725 4.99984H13.3417C13.7917 4.99984 14.1667 4.62484 14.1667 4.17484V4.15817C14.1667 3.70817 13.7917 3.33317 13.3417 3.33317H8.33337V2.49984C8.33337 2.0415 7.95837 1.6665 7.50004 1.6665C7.04171 1.6665 6.66671 2.0415 6.66671 2.49984V3.33317H1.65837C1.20837 3.33317 0.833374 3.70817 0.833374 4.15817C0.833374 4.6165 1.20837 4.98317 1.65837 4.98317H10.1417C9.57005 6.63685 8.67169 8.15868 7.50004 9.45817C6.82504 8.7165 6.25837 7.90817 5.78337 7.05817C5.72069 6.94011 5.62711 6.8413 5.51262 6.77232C5.39813 6.70333 5.26704 6.66676 5.13337 6.6665C4.55837 6.6665 4.19171 7.2915 4.47504 7.7915C5.00004 8.73317 5.64171 9.63317 6.39171 10.4665L2.75004 14.0582C2.67091 14.1351 2.60801 14.227 2.56506 14.3287C2.52211 14.4303 2.49998 14.5395 2.49998 14.6498C2.49998 14.7602 2.52211 14.8694 2.56506 14.971C2.60801 15.0726 2.67091 15.1646 2.75004 15.2415C3.07504 15.5665 3.60004 15.5665 3.93337 15.2415L7.50004 11.6665L9.18337 13.3498C9.60837 13.7748 10.3334 13.6165 10.5417 13.0582ZM14.5834 8.33317C14.0834 8.33317 13.6334 8.6415 13.4584 9.1165L10.4 17.2832C10.2 17.7915 10.5834 18.3332 11.125 18.3332C11.45 18.3332 11.7417 18.1332 11.8584 17.8248L12.6 15.8332H16.5584L17.3084 17.8248C17.425 18.1248 17.7167 18.3332 18.0417 18.3332C18.5834 18.3332 18.9667 17.7915 18.775 17.2832L15.7167 9.1165C15.5334 8.6415 15.0834 8.33317 14.5834 8.33317ZM13.2334 14.1665L14.5834 10.5582L15.9334 14.1665H13.2334Z"
-                              fill="black" />
-                          </g>
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_51_1053">
-                            <rect width="20" height="20" fill="white" />
-                          </clipPath>
-                        </defs>
-                      </svg>
-                    </span>
-                    <p>Hindi</p>
-                  </div>
-                  <div class="durtime">
-                    <span>
-                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.3464 13.5016L11.97 15.4277L15.7088 12.1973" stroke="black" stroke-width="1.5"
-                          stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                          d="M9.11995 8.1525C9.04495 8.145 8.95495 8.145 8.87245 8.1525C7.08745 8.0925 5.66995 6.63 5.66995 4.83C5.66245 2.9925 7.15495 1.5 8.99245 1.5C10.83 1.5 12.3225 2.9925 12.3225 4.83C12.3225 6.63 10.8974 8.0925 9.11995 8.1525Z"
-                          stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                          d="M8.7859 16.3573C7.34569 16.3573 5.9134 16.0373 4.82138 15.3974C2.90638 14.2706 2.90638 12.4342 4.82138 11.3144C6.99751 10.0345 10.5664 10.0345 12.7425 11.3144"
-                          stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                    <p>16yrs +</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="venue-information">
-              {% for block in section.blocks %}
-                {% case block.type %}
-                  {% when 'extra-info' %}
-                    <div class="venue-block">
-                      <h3>{{ block.settings.accor_heading }}</h3>
-                      <div class="venue-details">
-                        <div class="venue-icon">
-                          <p> {{ block.settings.accor_subheading }} </p>
-                        </div>
-                        <div class="venue-description">
-                          {{ block.settings.accor_desc }}
-                        </div>
-                      </div>
-                    </div>
-                  {% endcase %}
-              {% endfor %}
-            </div>
-
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-              <div class="accordioncontainer">
-                <div id="accordion-1">
-                  <div class="head">
-                    <div>
-                      <h3>klasdhnuirfsuhg</h3>
-                    </div>
-                    <div>
-                      {% render 'asAngleTopIcon' %}
-                    </div>
-                  </div>
-                  <div class="highlightcontent">
-                    <p>An accordion is used to show and hide content. It can be usually found in Q & A section.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="accordion accordion-flush last-accordion" id="accordionFlushExample">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'timing-block' %}
                 <div class="accordioncontainer">
                   <div id="accordion-1">
                     <div class="head">
-                      <h2>What's included in the ticket</h2>
-
+                      <h2> {{ block.settings.timing-heading }} </h2>
                       <div>
                         {% render 'asAngleTopIcon' %}
                       </div>
                     </div>
                     <div class="highlightcontent">
-                      <ul>
-                        <li>Entry to the La Perle By Dragone Show</li>
-                      </ul>
+                      <div class="actotimeanddate">
+                        <div>
+                          <div class="acto_timing_detail">
+                            <div class="acto_timing_icon">
+                              {% render 'asCalenderIcon' %}
+                            </div>
+                            <p>{{ product.metafields.custom.starting_date }}</p>
+                            <div class="acto_timing_icon">
+                              {% render 'asSwipeArrowIcon' %}
+                            </div>
+                            <p>{{ product.metafields.custom.ending_date }}</p>
+                          </div>
+                        </div>
+                        <div class="acto_timing_detail">
+                          <div class="acto_timing_icon">
+                            {% render 'AsClockIcon' %}
+                          </div>
+                          <p>{{ product.metafields.custom.show_time }}</p>
+                        </div>
+                      </div>
                     </div>
+                  </div>
+                </div>
+            {% endcase %}
+          {% endfor %}
+
+          <div class="pt-2">
+          {% for block in section.blocks %}
+          {% case block.type %}
+          {% when 'price-variant' %}
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordioncontainer">
+              <div id="accordion-{{ block.id }}">
+                <div class="head accordian_header">
+                  <div>
+                    <h2>{{ block.settings.ticket-price_ttl }}</h2>
+                    <p class="accordian-subtitle">{{ block.settings.ticket-price_subttl }}</p>
+                  </div>
+                  {% render 'asAngleTopIcon' %}
+                </div>
+                <div class="highlightcontent">
+                  <div class="row">
+                    {% for variant in product.variants %}
+                    <div class="col-12 d-flex py-2">
+                      <div class="d-flex">
+                        <p class="acto_ticket_type">{{ variant.title }}</p>
+                        <p class="dashed_icon"> - </p>
+                      </div>
+                      <div>
+                        {% if variant.price == 0 %}
+                        <p class="sold-out-txt m-0">sold out</p>
+                        {% else %}
+                        <p class="acto_ticket_prc">{{ variant.price | money_without_trailing_zeros }}</p>
+                        {% endif %}
+                      </div>
+                    </div>
+                    {% endfor %}
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          {% endcase %}
+          {% endfor %}
+        </div>
+
+        <div class="eventVenueSection">
+          <h4 class="ttlvenues">
+            <a href="#">3 More Venues
+              <span>
+                <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M1.47705 1.04045L4.73705 4.30045C5.12205 4.68545 5.12205 5.31545 4.73705 5.70045L1.47705 8.96045"
+                    stroke="#942FFA" stroke-width="1.2" stroke-miterlimit="10" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+            </a>
+          </h4>
+          <div class="eventBasicdetails">
+            <div class="eventDuration">
+              <div>
+                <div class="durtime">
+                  <span>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M16.5 9C16.5 13.14 13.14 16.5 9 16.5C4.86 16.5 1.5 13.14 1.5 9C1.5 4.86 4.86 1.5 9 1.5C13.14 1.5 16.5 4.86 16.5 9Z"
+                        stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M11.7825 11.3848L9.45753 9.99732C9.05253 9.75732 8.72253 9.17982 8.72253 8.70732V5.63232"
+                        stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  <p>1hr 30mins</p>
+                </div>
+              </div>
+              <div class="durtime">
+                <span>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_51_1053)">
+                      <mask id="mask0_51_1053" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0"
+                        width="20" height="20">
+                        <path d="M0 0H20V20H0V0Z" fill="white" />
+                      </mask>
+                      <g mask="url(#mask0_51_1053)">
+                        <path
+                          d="M10.5417 13.0582C10.6584 12.7582 10.5834 12.4165 10.35 12.1832L8.60837 10.4665L8.63337 10.4415C10.0452 8.87242 11.1 7.01588 11.725 4.99984H13.3417C13.7917 4.99984 14.1667 4.62484 14.1667 4.17484V4.15817C14.1667 3.70817 13.7917 3.33317 13.3417 3.33317H8.33337V2.49984C8.33337 2.0415 7.95837 1.6665 7.50004 1.6665C7.04171 1.6665 6.66671 2.0415 6.66671 2.49984V3.33317H1.65837C1.20837 3.33317 0.833374 3.70817 0.833374 4.15817C0.833374 4.6165 1.20837 4.98317 1.65837 4.98317H10.1417C9.57005 6.63685 8.67169 8.15868 7.50004 9.45817C6.82504 8.7165 6.25837 7.90817 5.78337 7.05817C5.72069 6.94011 5.62711 6.8413 5.51262 6.77232C5.39813 6.70333 5.26704 6.66676 5.13337 6.6665C4.55837 6.6665 4.19171 7.2915 4.47504 7.7915C5.00004 8.73317 5.64171 9.63317 6.39171 10.4665L2.75004 14.0582C2.67091 14.1351 2.60801 14.227 2.56506 14.3287C2.52211 14.4303 2.49998 14.5395 2.49998 14.6498C2.49998 14.7602 2.52211 14.8694 2.56506 14.971C2.60801 15.0726 2.67091 15.1646 2.75004 15.2415C3.07504 15.5665 3.60004 15.5665 3.93337 15.2415L7.50004 11.6665L9.18337 13.3498C9.60837 13.7748 10.3334 13.6165 10.5417 13.0582ZM14.5834 8.33317C14.0834 8.33317 13.6334 8.6415 13.4584 9.1165L10.4 17.2832C10.2 17.7915 10.5834 18.3332 11.125 18.3332C11.45 18.3332 11.7417 18.1332 11.8584 17.8248L12.6 15.8332H16.5584L17.3084 17.8248C17.425 18.1248 17.7167 18.3332 18.0417 18.3332C18.5834 18.3332 18.9667 17.7915 18.775 17.2832L15.7167 9.1165C15.5334 8.6415 15.0834 8.33317 14.5834 8.33317ZM13.2334 14.1665L14.5834 10.5582L15.9334 14.1665H13.2334Z"
+                          fill="black" />
+                      </g>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_51_1053">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </span>
+                <p>Hindi</p>
+              </div>
+              <div class="durtime">
+                <span>
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.3464 13.5016L11.97 15.4277L15.7088 12.1973" stroke="black" stroke-width="1.5"
+                      stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M9.11995 8.1525C9.04495 8.145 8.95495 8.145 8.87245 8.1525C7.08745 8.0925 5.66995 6.63 5.66995 4.83C5.66245 2.9925 7.15495 1.5 8.99245 1.5C10.83 1.5 12.3225 2.9925 12.3225 4.83C12.3225 6.63 10.8974 8.0925 9.11995 8.1525Z"
+                      stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M8.7859 16.3573C7.34569 16.3573 5.9134 16.0373 4.82138 15.3974C2.90638 14.2706 2.90638 12.4342 4.82138 11.3144C6.99751 10.0345 10.5664 10.0345 12.7425 11.3144"
+                      stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+                <p>16yrs +</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="common-box-for-border">
+          {% for block in section.blocks %}
+          {% case block.type %}
+          {% when 'extra-info' %}
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordioncontainer">
+              <div id="accordion-{{ block.id }}">
+                <div class="head accordian_header">
+                  <div>
+                    <h3>{{ block.settings.accor_heading }}</h3>
+                    <p>{{ block.settings.accor_subheading }}</p>
+                  </div>
+                  {% render 'asAngleTopIcon' %}
+                </div>
+                <div class="highlightcontent">
+                  <div> {{ block.settings.accor_desc }} </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endcase %}
+          {% endfor %}
+        </div>
+
+        <div class="loaction_block">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'loaction-block' %}
+                <h2>{{ block.settings.loaction-ttl }}</h2>
+                <div class="locationcity">
+                  <span> {{ block.settings.loaction-icon }} </span>
+                  <h3>{{ block.settings.city-name }}</h3>
+                </div>
+                <div class="loactionfull">
+                  <p> {{ block.settings.address_txt }} </p>
+                </div>
+                <div class="locationgmap">
+                  {{ block.settings.loaction-map }}
+                </div>
+            {% endcase %}
+          {% endfor %}
         </div>
       </div>
+      </div>
+
+
 
       <div class="eventSectionTwo">
         <div class="eventsPricestart">
-          <h3>Price From:</h3>
-          <div class="bookingDiv">
-            <div class="bookingPrice">
-              <h4>Per Person</h4>
-              <h2>₹50.00</h2>
-              <h4><del>80.06₹</del></h4>
-              <h5>
-                <span>
-                  <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g opacity="0.8">
-                      <path
-                        d="M16.4855 10.0247C16.4855 10.7081 16.4855 11.3916 16.4748 12.0644C16.4748 12.3207 16.4001 12.5342 16.2506 12.6731C16.1118 12.8012 15.9195 12.8653 15.6953 12.8546C15.3642 12.8439 14.9691 12.6731 14.9691 11.9682V11.1353C14.9691 9.07427 14.9691 6.94917 14.9691 4.86679C14.9691 4.54642 14.9584 4.12994 14.873 3.72415C14.7128 2.92323 14.2109 2.432 13.3887 2.2825C13.079 2.2291 12.7479 2.19707 12.4062 2.19707C9.8219 2.18639 7.20558 2.19707 4.67468 2.19707H4.06599C3.86309 2.19707 3.64951 2.19707 3.43593 2.2291C2.25057 2.36793 1.6312 3.01934 1.53509 4.2047C1.51373 4.43963 1.51373 4.68525 1.51373 4.92018V5.05901C1.51373 7.89959 1.51373 10.7402 1.51373 13.5808V15.6631C1.51373 15.7593 1.51373 15.8554 1.51373 15.9515C1.53509 17.6708 2.2399 18.3756 3.93784 18.3969C4.94165 18.4076 5.96683 18.4076 6.95996 18.4076C7.40848 18.4076 7.86767 18.4076 8.31618 18.4076H8.39093C8.48704 18.4076 8.59383 18.4076 8.68994 18.4076C9.17049 18.4076 9.4695 18.6746 9.48018 19.1231C9.49086 19.3474 9.41611 19.5396 9.28796 19.6784C9.14913 19.8279 8.94624 19.9027 8.70062 19.9027H8.68994C8.23075 19.9027 7.76088 19.9027 7.30169 19.9027C5.91343 19.9027 4.48246 19.9027 3.08353 19.8172C1.50305 19.7211 0.307018 18.5464 0.0934402 16.9019C0.0400458 16.4747 0.00800916 16.0476 0.00800916 15.6097C-0.00266972 14.2962 -0.00266972 12.9507 0.00800916 11.6586V10.2703C0.00800916 9.7684 0.00800916 9.25581 0.00800916 8.7539C0.00800916 7.46176 0.00800916 6.13758 0.018688 4.82407C0.0293669 4.16198 0.0827614 3.64939 0.210908 3.21156C0.595348 1.83398 1.55645 1.00103 2.9981 0.776774C3.39322 0.712701 3.82037 0.691343 4.34364 0.680664C6.66095 0.680664 9.41611 0.680664 12.2033 0.691343C12.6625 0.691343 13.2498 0.712701 13.8158 0.840847C15.4176 1.19325 16.4001 2.44268 16.4428 4.16198C16.4962 6.11622 16.4962 8.10249 16.4855 10.0247Z"
-                        fill="black" />
-                      <path
-                        d="M18.429 13.5377C18.4397 13.8046 18.2795 14.1143 17.9058 14.5094C17.2757 15.1822 16.6457 15.855 16.0263 16.5384C15.1293 17.4995 14.2322 18.4713 13.3352 19.4324C13.0789 19.71 12.8547 19.8916 12.5984 19.9023H12.5877C12.3741 19.9023 12.1605 19.7741 11.8508 19.4751C11.5305 19.1547 11.2101 18.8344 10.8897 18.514C10.4199 18.0335 9.92864 17.5529 9.43742 17.0724C9.27723 16.9229 8.80736 16.453 9.29859 15.8977C9.43742 15.7375 9.5976 15.6627 9.77914 15.6521C10.0034 15.6414 10.249 15.7589 10.4946 16.0045C10.9965 16.5064 11.4878 17.0083 12.011 17.5316C12.1926 17.7238 12.3741 17.9053 12.5663 18.0975L13.7303 16.8481C14.7875 15.7161 15.8127 14.6055 16.8486 13.4843C17.3398 12.961 17.7563 12.694 18.2155 13.0998C18.3436 13.2173 18.429 13.3668 18.429 13.5377Z"
-                        fill="#942FFA" />
-                      <path
-                        d="M12.0538 7.76106C12.0538 7.98531 11.9897 8.15618 11.8616 8.28432C11.7121 8.43383 11.4878 8.50858 11.1888 8.50858C10.5161 8.4979 9.84328 8.4979 9.18119 8.50858H7.53664C6.89591 8.50858 6.23382 8.50858 5.57173 8.50858H5.53969C5.30476 8.50858 4.7281 8.47654 4.6747 7.80377C4.65334 7.59019 4.71742 7.40865 4.84556 7.28051C5.00575 7.10965 5.25136 7.02421 5.57173 7.01354C7.25899 7.00286 8.96761 7.01354 10.6228 7.01354H11.1781C11.7334 7.01354 12.0538 7.28051 12.0538 7.76106Z"
-                        fill="#942FFA" />
-                      <path
-                        d="M9.09571 11.9577C9.10639 12.1713 9.04232 12.3635 8.91417 12.5023C8.77535 12.6411 8.5938 12.7159 8.35887 12.7266C7.87832 12.7372 7.38709 12.7479 6.88518 12.7479C6.41531 12.7479 5.92408 12.7479 5.43285 12.7372C5.2086 12.7372 5.02706 12.6625 4.88823 12.5343C4.74941 12.3955 4.67465 12.2033 4.68533 11.979C4.69601 11.5198 4.97366 11.2529 5.44353 11.2422C5.78526 11.2422 6.12698 11.2422 6.45803 11.2422C6.74636 11.2422 7.03469 11.2422 7.32302 11.2422C7.65406 11.2422 7.99579 11.2422 8.32683 11.2422C8.7967 11.2422 9.08503 11.5198 9.09571 11.9577Z"
-                        fill="#942FFA" />
-                    </g>
-                  </svg>
-                </span>
-                Instant Confirmation
-              </h5>
-            </div>
-            <div class="bookTickets">
-              <a href="{{ section.settings.select-ticket-btn }}" class="eventtcktselect">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M1.66675 1.6665H3.11675C4.01675 1.6665 4.72508 2.4415 4.65008 3.33317L3.95842 11.6332C3.84175 12.9915 4.91674 14.1582 6.28341 14.1582H15.1584C16.3584 14.1582 17.4084 13.1748 17.5001 11.9832L17.9501 5.73317C18.0501 4.34984 17.0001 3.22483 15.6084 3.22483H4.85009"
-                    stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                  <path
-                    d="M13.5417 18.3333C14.117 18.3333 14.5833 17.867 14.5833 17.2917C14.5833 16.7164 14.117 16.25 13.5417 16.25C12.9664 16.25 12.5 16.7164 12.5 17.2917C12.5 17.867 12.9664 18.3333 13.5417 18.3333Z"
-                    stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                  <path
-                    d="M6.87492 18.3333C7.45021 18.3333 7.91658 17.867 7.91658 17.2917C7.91658 16.7164 7.45021 16.25 6.87492 16.25C6.29962 16.25 5.83325 16.7164 5.83325 17.2917C5.83325 17.867 6.29962 18.3333 6.87492 18.3333Z"
-                    stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                  <path d="M7.5 6.6665H17.5" stroke="white" stroke-width="1.5" stroke-miterlimit="10"
-                    stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                Select Tickets
-              </a>
-            </div>
-          </div>
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'price-detail' %}
+                <h2 class="event-price-heading">{{ block.settings.price-from_ttl }}</h2>
+                <div class="bookingDiv">
+                  <div class="bookingPrice">
+                    <h4>{{ block.settings.price-from_subttl }}</h4>
+                    <h2>{{ product.price | money_with_currency }}</h2>
+                    <h3><s>{{ product.compare_at_price | money_with_currency }}</s></h3>
+                    <h4>
+                      <span> {{ block.settings.instant_confirmation-icon }} </span>
+                      {{ block.settings.icon-txt }}
+                    </h4>
+                  </div>
+                  <div class="bookTickets">
+                    <a href="{{ block.settings.select-ticket-btn }}" class="eventtcktselect">
+                      {{ block.settings.select-ticket-btn-icon }}
+                      {{ block.settings.select-ticket-btn-txt }}
+                    </a>
+                  </div>
+                </div>
+            {% endcase %}
+          {% endfor %}
         </div>
 
         <div class="whyactopass">
@@ -769,13 +357,8 @@
             </div>
           </div>
         </div>
-
-        {% render 'actopaymentmethod' %}
       </div>
     </div>
   </div>
-</div>
-<div class="container-1170">
-  {% render 'actopass-product-location-price' %}
 </div>
 {% endif %}
